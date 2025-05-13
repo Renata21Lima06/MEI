@@ -1,5 +1,4 @@
 function showForm(userType) {
-    // Esconde todos os formulários
     document.getElementById("meiForm").style.display = "none";
     document.getElementById("contadorForm").style.display = "none";
 
@@ -58,5 +57,5 @@ function submitForm(userType) {
     // Após 2 segundos, redireciona para a página de login
     setTimeout(function() {
         window.location.href = './login.html';
-    }, 2000); // Aguardar 2 segundos antes de redirecionar
+    }, 2000); 
 }

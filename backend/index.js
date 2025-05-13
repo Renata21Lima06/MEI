@@ -1,7 +1,6 @@
-// backend/index.js
 import express from 'express';
-import sequelize from './config/sequelize.js'; // Agora com a extensão '.js'
-import Mei from './mei.js'; // Certifique-se de incluir a extensão '.js' também
+import sequelize from './config/sequelize.js'; 
+import Mei from './mei.js'; 
 
 const app = express();
 app.use(express.json());
