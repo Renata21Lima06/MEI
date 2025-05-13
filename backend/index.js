@@ -1,24 +1,25 @@
-const express = require('express');
+// backend/index.js
+import express from 'express';
+import sequelize from './config/sequelize.js'; // Agora com a extensão '.js'
+import Mei from './mei.js'; // Certifique-se de incluir a extensão '.js' também
+
 const app = express();
-const cors = require('cors');
-
-const sequelize = require('./config/sequelize'); // ✅ Apenas uma vez aqui
-const MEI = require('./models/MEI');
-const Contador = require('./models/Contador');
-const cadastroRoutes = require('./routes/cadastro.routes');
-
-app.use(cors());
 app.use(express.json());
-app.use('/', cadastroRoutes);
 
-// ✅ Criação/atualização das tabelas
-sequelize.sync({ alter: true })
-    .then(() => {
-        console.log('Tabelas sincronizadas com o banco de dados.');
-        app.listen(3000, () => {
-            console.log('Servidor rodando na porta 3000');
-        });
-    })
-    .catch(erro => {
-        console.error('Erro ao sincronizar tabelas:', erro);
-    });
+sequelize.sync({ alter: true }).then(() => {
+  console.log('Banco de dados sincronizado!');
+});
+
+// Rotas para CRUD de MEI
+app.get('/meis', async (req, res) => {
+  try {
+    const meis = await Mei.findAll();
+    res.json(meis);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao buscar MEIs' });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Servidor rodando na porta 3000');
+});

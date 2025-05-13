@@ -1,38 +1,14 @@
-// models/MEI.js
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/sequelize'); // ajuste conforme seu caminho
+// backend/Mei.js
+import { DataTypes } from 'sequelize';
+import sequelize from './config/sequelize.js';  // Caminho correto para o arquivo sequelize.js
 
-const MEI = sequelize.define('MEI', {
-    nome: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    telefone: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    empresa: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-    cnpj: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-    endereco: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    senha: {
-        type: DataTypes.STRING,
-        allowNull: false
-    }
+const Mei = sequelize.define('Mei', {
+  nome: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  // Outros campos podem ser adicionados aqui conforme necessário
 });
 
-module.exports = MEI;
+// Exportação do modelo como default
+export default Mei;
