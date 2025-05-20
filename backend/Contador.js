@@ -1,20 +1,20 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./index');
+import { DataTypes } from "sequelize";
+import sequelize from "./config/sequelize.js";
 
-const Mei = sequelize.define('MEI', {
+const Contador = sequelize.define("Contador", {
   nome: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
   },
   senha: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
+    allowNull: false,
+  },
 });
 
-module.exports = Mei;
+export default Contador;

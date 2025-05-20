@@ -1,20 +1,20 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./index');
+const { DataTypes } = require("sequelize");
+const sequelize = require("./index");
 
-const Mei = sequelize.define('MEI', {
+const Mensagem = sequelize.define("Mensagem", {
   nome: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
   },
   senha: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
+    allowNull: false,
+  },
 });
 
-module.exports = Mei;
+module.exports = Mensagem;
